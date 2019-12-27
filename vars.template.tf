@@ -15,7 +15,6 @@ variable "heroku_private_space" {
 }
 
 variable "aws_region" {
-  description = "Amazon Web Services region"
   default = "<YOUR_AWS_REGION>" // One of the AWS regions below e.g. eu-central-1
 }
 
