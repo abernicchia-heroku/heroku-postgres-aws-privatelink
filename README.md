@@ -17,6 +17,29 @@ This Repository contains a set of Terraform files to create a complete sandbox e
 2) Fill in the **vars.template.tf_** variables file and rename it to **vars.tf** `$ mv vars.template.tf_ vars.tf`
 3) Execute `$ terraform apply` and type "yes" when asked to proceed with the infrastructure creation - the whole process will take about **20 minutes** to complete
 
-
 # How to destroy the sandbox environment
 3) Execute `$ terraform destroy` and type "yes" when asked to proceed with the infrastructure desctruction - the whole process will take about **30 seconds** to complete
+
+# Created resources
+
+| Resource                    | Notes         |
+| --------------------------- | ------------- |
+| Heroku App                  |               |
+| Heroku Private Space        |               |
+| Heroku Postgres             | Private-0 tier|
+| Heroku Postgres Endpoint Service   |               |
+| AWS VPC                     |               |
+| AWS Subnet                  |               |
+| AWS Internet Gateway        |               |
+| AWS Route Table             |               |
+| AWS Security Group          |               |
+| AWS VPC Endpoint            | Interface type|
+| AWS EC2                     | t2.micro      |
+| AWS EC2 key pair            |               |
+
+# Repository files
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
