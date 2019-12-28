@@ -1,5 +1,5 @@
 # Connecting to a Private Heroku Postgres via AWS PrivateLink - Terraform files
-This Repository contains a set of Terraform files to create a complete sandbox environment, including both Heroku and AWS resources, to test how connecting to a Private or Shield Heroku Postgres Database via AWS PrivateLink, as described here: https://devcenter.heroku.com/articles/heroku-postgres-via-privatelink
+This Repository contains a set of Terraform files to automatically create a complete sandbox environment, including both Heroku and AWS resources, to test how connecting to a Private or Shield Heroku Postgres Database via AWS PrivateLink, as described here: https://devcenter.heroku.com/articles/heroku-postgres-via-privatelink
 
 # Prerequisites
 - An Heroku Account
