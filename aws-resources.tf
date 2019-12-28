@@ -54,11 +54,27 @@ resource "aws_main_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
 }
 
+resource "aws_security_group" "pg-allowed" {
+    vpc_id = aws_vpc.default.id
+    name = format("%s-%s", var.name, "pg-sg")
+
+    // postgres
+    ingress {
+      from_port = 5432
+      to_port = 5433
+      protocol = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    tags = {
+      Name = format("%s-%s", var.name, "pg-sg")
+    }
+}
+
 resource "aws_security_group" "ssh-allowed" {
     vpc_id = aws_vpc.default.id
-    name = format("%s-%s", var.name, "sg")
+    name = format("%s-%s", var.name, "ssh-sg")
 
-    
     egress {
         from_port = 0
         to_port = 0
@@ -76,32 +92,8 @@ resource "aws_security_group" "ssh-allowed" {
         cidr_blocks = ["0.0.0.0/0"]
     }
 
-    // http
-    ingress {
-        from_port = 80
-        to_port = 80
-        protocol = "tcp"
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-
-    // https
-    ingress {
-      from_port = 443
-      to_port = 443
-      protocol = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
-
-    // postgres
-    ingress {
-      from_port = 5432
-      to_port = 5433
-      protocol = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
-
     tags = {
-    	Name = format("%s-%s", var.name, "sg")
+    	Name = format("%s-%s", var.name, "ssh-sg")
     }
 }
 
@@ -110,7 +102,7 @@ resource "aws_vpc_endpoint" "heroku-pg-privatelink" {
     service_name = file("${heroku_addon.private_postgres_example.name}.txt")
     vpc_endpoint_type = "Interface" 
     subnet_ids = [ "${aws_subnet.public.id}" ]
-    security_group_ids = [ "${aws_security_group.ssh-allowed.id}" ]  
+    security_group_ids = [ "${aws_security_group.pg-allowed.id}" ]  
 
     depends_on = [ null_resource.private_postgres_endpoint_service ] // the aws_vpc_endpoint cannot be created until the heroku endpoint service is not available
 }
