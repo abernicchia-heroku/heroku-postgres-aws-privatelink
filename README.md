@@ -67,4 +67,5 @@ This package has been tested using the following OS/tools:
 # Additional Notes
 - In case of issues executing Terraform, enabling the [log trace](https://www.terraform.io/docs/internals/debugging.html) (e.g. `$ export TF_LOG=TRACE`) can help understanding the problems
 - The heroku-resources.tf file uses the Heroku CLI to create the Postgres Endpoint Service as currently it's not possible yet to create it using a specific Terraform resource nor the Heroku API
+- The AWS Security Group rules control the traffic from the AWS VPC resources to the endpoint network interface (from VPC -> to Postgres, not the other way round). Services (e.g. Heroku dynos, Postgres ...) cannot initiate requests to resources in the AWS VPC through the endpoint, as it only returns responses to traffic initiated from resources in the AWS VPC (see [here](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html) for details
 
