@@ -15,10 +15,10 @@ This Repository contains a set of Terraform files to automatically create a comp
 # How to create the sandbox environment
 1) Open a Terminal and log in via Heroku CLI. You must be logged in the Heroku CLI on the terminal used to execute the Terraform commands
 2) Fill in the **vars.template.tf_** variables file and rename it to **vars.tf** `$ mv vars.template.tf_ vars.tf`
-3) Execute `$ terraform apply` and type "yes" when asked to proceed with the infrastructure creation - the whole process will take about **20 minutes** to complete
+3) Execute `$ terraform apply` and type "yes" when prompted "Do you want to perform these actions?" to proceed with the infrastructure creation - the whole process will take about **20 minutes** to complete
 
 # How to destroy the sandbox environment
-1) Execute `$ terraform destroy` and type "yes" when asked to proceed with the infrastructure desctruction - the whole process will take about **30 seconds** to complete
+1) Execute `$ terraform destroy` and type "yes" when prompted "Do you want to perform these actions?" to proceed with the infrastructure desctruction - the whole process will take about **30 seconds** to complete
 
 # Created resources
 When the `$ Terraform apply` has been succesfully executed, the following resources are created:
@@ -48,5 +48,9 @@ When the `$ Terraform apply` has been succesfully executed, the following resour
 | vars.template.tf_  | Template file for the Terraform variables to be defined. Once defined, it must be renamed as vars.tf file |
 | graph.svg  | Terraform graph image, generated using `$ terraform graph \| dot -Tsvg > graph.svg` - it requires [graphviz](https://formulae.brew.sh/formula/graphviz#default) to be generated|
 | README.md  | This README file  |
+
+# Additional Notes
+In case of issues executing Terraform, enabling the [log trace](https://www.terraform.io/docs/internals/debugging.html) (e.g. `$ export TF_LOG=TRACE`) can help understanding the problems.
+
 
 
