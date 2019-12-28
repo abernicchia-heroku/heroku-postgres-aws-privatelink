@@ -21,7 +21,7 @@ This Repository contains a set of Terraform files to create a complete sandbox e
 1) Execute `$ terraform destroy` and type "yes" when asked to proceed with the infrastructure desctruction - the whole process will take about **30 seconds** to complete
 
 # Created resources
-When the Terraform apply has been succesfully executed, the following resources will be created:
+When the `$ Terraform apply` has been succesfully executed, the following resources are created:
 
 | Resource                    | Notes         |
 | --------------------------- | ------------- |
