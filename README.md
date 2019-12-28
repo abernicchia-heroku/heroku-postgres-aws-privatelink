@@ -28,7 +28,7 @@ When the `$ Terraform apply` has been succesfully executed, the following resour
 | Heroku App                  |               |
 | Heroku Private Space        |               |
 | Heroku Postgres             | Private-0 tier|
-| Heroku Postgres Endpoint Service   |               |
+| Heroku Postgres Endpoint Service   | Created using Heroku CLI              |
 | AWS VPC                     |               |
 | AWS Subnet                  |               |
 | AWS Internet Gateway        |               |
