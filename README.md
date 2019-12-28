@@ -13,14 +13,15 @@ This Repository contains a set of Terraform files to create a complete sandbox e
 - A ssh key file `$ ssh-keygen -f /Users/aws-ec2-integrationuser-key-pair` and its public key `$ ssh-keygen -y -f /Users/aws-ec2-integrationuser-key-pair`
 
 # How to create the sandbox environment
-1) Open a Terminal and log in via Heroku CLI. You must be logged in the Heroku CLI on the terminal used to execute Terraform commands
+1) Open a Terminal and log in via Heroku CLI. You must be logged in the Heroku CLI on the terminal used to execute the Terraform commands
 2) Fill in the **vars.template.tf_** variables file and rename it to **vars.tf** `$ mv vars.template.tf_ vars.tf`
 3) Execute `$ terraform apply` and type "yes" when asked to proceed with the infrastructure creation - the whole process will take about **20 minutes** to complete
 
 # How to destroy the sandbox environment
-3) Execute `$ terraform destroy` and type "yes" when asked to proceed with the infrastructure desctruction - the whole process will take about **30 seconds** to complete
+1) Execute `$ terraform destroy` and type "yes" when asked to proceed with the infrastructure desctruction - the whole process will take about **30 seconds** to complete
 
 # Created resources
+When the Terraform apply has been succesfully executed, the following resources will be created:
 
 | Resource                    | Notes         |
 | --------------------------- | ------------- |
