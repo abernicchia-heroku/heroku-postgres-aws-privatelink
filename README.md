@@ -1,7 +1,7 @@
 # Connecting to a Private Heroku Postgres via AWS PrivateLink - Terraform files
 This Repository contains a set of Terraform files to create a complete sandbox environment, including both Heroku and AWS resources, to test how connecting to a Private or Shield Heroku Postgres Database via AWS PrivateLink, as described here: https://devcenter.heroku.com/articles/heroku-postgres-via-privatelink
 
-# Pre-requisites
+# Prerequisites
 - An Heroku Account
 - An Heroku API Key (see [here](https://devcenter.heroku.com/articles/platform-api-quickstart#authentication) to create one)
 - An Heroku Enterprise Team
@@ -39,7 +39,13 @@ This Repository contains a set of Terraform files to create a complete sandbox e
 
 # Repository files
 
-| First Header  | Second Header |
+| File  | Notes |
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| providers.tf  | Includes all the Terraform Providers |
+| heroku-resources.tf  | Defines all the Heroku resources |
+| aws-resources.tf  | Defines all the AWS resources |
+| vars.template.tf_  | Template file for the Terraform variables to be defined. Once defined, it must be renamed as vars.tf file |
+| graph.svg  | Terraform graph image, generated using `$ terraform graph \| dot -Tsvg > graph.svg` it requires [graphviz](https://formulae.brew.sh/formula/graphviz#default) to be generated|
+| README.md  | This README file  |
+
+
