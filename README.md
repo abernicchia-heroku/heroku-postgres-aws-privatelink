@@ -17,10 +17,10 @@ This Repository contains a set of Terraform files to automatically create a comp
 2) Fill in the **vars.template.tf_** variables file and rename it to **vars.tf** `$ mv vars.template.tf_ vars.tf`
 3) Execute `$ terraform apply` and type "yes" when prompted "Do you want to perform these actions?" to proceed with the infrastructure creation - the whole process will take about **20 minutes** to complete
 4) When the Terraform execution correctly ends, it is possible to retrieve:
-- the Postgres Endpoint URL `$ heroku config --app <YOUR_HEROKU_APP_NAME> | grep ENDPOINT` (e.g. DATABASE_ENDPOINT_0Z9C05000F8_URL: postgres://user:passwd<span></span>@vpce-cd2064-596vghds.vpce-svc-07c4b22.eu-central-1.vpce.amazonaws.com:5432/do0lxxrtcb)
-- the EC2 hostname inspecting the Terraform state `$ terraform show | grep public_dns` (e.g. public_dns = "ec2-52-91-128-119.eu-central-1.compute.amazonaws.com")
+- the Postgres Endpoint URL `$ heroku config --app <YOUR_HEROKU_APP_NAME> | grep ENDPOINT` (e.g. *DATABASE_ENDPOINT_0Z9C05000F8_URL: postgres://user:passwd<span></span>@vpce-cd2064-596vghds.vpce-svc-07c4b22.eu-central-1.vpce.amazonaws.com:5432/do0lxxrtcb*)
+- the EC2 hostname inspecting the Terraform state `$ terraform show | grep public_dns` (e.g. *public_dns = "ec2-52-91-128-119.eu-central-1.compute.amazonaws.com"*)
 5) Connect to the EC2 using `$ ssh -i <YOUR_PRIVATE_KEY_FILE_PATH_FOR_SSH_CONNECTION> ubuntu@<YOUR_EC2_HOSTNAME>` where <YOUR_PRIVATE_KEY_FILE_PATH_FOR_SSH_CONNECTION> is the same file path configured into the **vars.tf** file and <YOUR_EC2_HOSTNAME> is the value retrieved in the previous step
-6) From the EC2 connect to Heroku Postgres using the Endpoint URL retrieved previously `ubuntu$ psql <POSTGRES_ENDPOINT_URL>` (e.g. psql postgres://user:passwd<span></span>@vpce-cd2064-596vghds.vpce-svc-07c4b22.eu-central-1.vpce.amazonaws.com:5432/do0lxxrtcb)
+6) From the EC2 connect to Heroku Postgres using the Endpoint URL retrieved previously `ubuntu$ psql <POSTGRES_ENDPOINT_URL>` (e.g. *psql postgres://user:passwd<span></span>@vpce-cd2064-596vghds.vpce-svc-07c4b22.eu-central-1.vpce.amazonaws.com:5432/do0lxxrtcb*)
 
 ## Created resources
 When the `$ terraform apply` has been succesfully executed, the following resources are created:
