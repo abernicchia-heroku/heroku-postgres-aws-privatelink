@@ -38,6 +38,7 @@ resource "null_resource" "private_postgres_endpoint_service" {
     command = "heroku data:privatelink ${heroku_addon.private_postgres_example.name} --app ${var.app_name} | grep \"Service Name:\" | cut -d : -f 2 - | tr -d \"[:space:]\" > ${heroku_addon.private_postgres_example.name}.txt"
   }
 
+  // it takes a bit of time to have the Postgres Endpoint Service visible to the AWS API, then waiting for a bunch of seconds 
   provisioner "local-exec" {
     command = "sleep 30"
   }
