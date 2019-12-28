@@ -55,8 +55,16 @@ When the `$ terraform apply` has been succesfully executed, the following resour
 | graph.svg  | Terraform graph image, generated using `$ terraform graph \| dot -Tsvg > graph.svg` - it requires [graphviz](https://formulae.brew.sh/formula/graphviz#default) to be generated|
 | README.md  | This README file  |
 
+# Tested on
+This package has been tested using the following OS/tools:
+
+| OS/Tool                    | Version         |
+| --------------------------- | ------------- |
+| macOS                  |  Mojave 10.14.6             |
+| Heroku CLI        |     7.35.1          |
+| Terraform CLI             | 0.12 | 
+
 # Additional Notes
 In case of issues executing Terraform, enabling the [log trace](https://www.terraform.io/docs/internals/debugging.html) (e.g. `$ export TF_LOG=TRACE`) can help understanding the problems.
-
 
 
