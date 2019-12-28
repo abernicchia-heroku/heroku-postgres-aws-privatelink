@@ -22,10 +22,7 @@ This Repository contains a set of Terraform files to automatically create a comp
 5) Connect to the EC2 using `$ ssh -i <YOUR_PRIVATE_KEY_FILE_PATH_FOR_SSH_CONNECTION> ubuntu@<YOUR_EC2_HOSTNAME>` where <YOUR_PRIVATE_KEY_FILE_PATH_FOR_SSH_CONNECTION> is the same file path configured into the **vars.tf** file and <YOUR_EC2_HOSTNAME> is the value retrieved in the previous step
 6) From the EC2 connect to Heroku Postgres using the Endpoint URL retrieved previously `ubuntu$ psql <POSTGRES_ENDPOINT_URL>` (e.g. psql postgres://user:passwd<span></span>@vpce-cd2064-596vghds.vpce-svc-07c4b22.eu-central-1.vpce.amazonaws.com:5432/do0lxxrtcb)
 
-# How to destroy the sandbox environment
-1) Execute `$ terraform destroy` and type "yes" when prompted "Do you want to perform these actions?" to proceed with the infrastructure desctruction - the whole process will take about **30 seconds** to complete
-
-# Created resources
+## Created resources
 When the `$ terraform apply` has been succesfully executed, the following resources are created:
 
 | Resource                    | Notes         |
@@ -43,6 +40,9 @@ When the `$ terraform apply` has been succesfully executed, the following resour
 | AWS VPC Endpoint            | Interface type|
 | AWS EC2                     | t2.micro      |
 | AWS EC2 key pair            |               |
+
+# How to destroy the sandbox environment
+1) Execute `$ terraform destroy` and type "yes" when prompted "Do you want to perform these actions?" to proceed with the infrastructure desctruction - the whole process will take about **30 seconds** to complete
 
 # Repository files
 
@@ -65,6 +65,6 @@ This package has been tested using the following OS/tools:
 | Terraform CLI             | 0.12 | 
 
 # Additional Notes
-In case of issues executing Terraform, enabling the [log trace](https://www.terraform.io/docs/internals/debugging.html) (e.g. `$ export TF_LOG=TRACE`) can help understanding the problems.
-
+- In case of issues executing Terraform, enabling the [log trace](https://www.terraform.io/docs/internals/debugging.html) (e.g. `$ export TF_LOG=TRACE`) can help understanding the problems
+- The heroku-resources.tf file uses the Heroku CLI to create the Postgres Endpoint Service as currently it's not possible yet to create it using a specific Terraform resource nor the Heroku API
 
