@@ -42,11 +42,11 @@ When the `$ Terraform apply` has been succesfully executed, the following resour
 
 | File  | Notes |
 | ------------- | ------------- |
-| providers.tf  | Includes all the Terraform Providers |
-| heroku-resources.tf  | Defines all the Heroku resources |
-| aws-resources.tf  | Defines all the AWS resources |
+| providers.tf  | Includes all the Terraform Providers in use |
+| heroku-resources.tf  | Defines all the Heroku resources to be created |
+| aws-resources.tf  | Defines all the AWS resources to be created |
 | vars.template.tf_  | Template file for the Terraform variables to be defined. Once defined, it must be renamed as vars.tf file |
-| graph.svg  | Terraform graph image, generated using `$ terraform graph \| dot -Tsvg > graph.svg` it requires [graphviz](https://formulae.brew.sh/formula/graphviz#default) to be generated|
+| graph.svg  | Terraform graph image, generated using `$ terraform graph \| dot -Tsvg > graph.svg` - it requires [graphviz](https://formulae.brew.sh/formula/graphviz#default) to be generated|
 | README.md  | This README file  |
 
 
