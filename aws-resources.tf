@@ -144,7 +144,7 @@ resource "aws_instance" "ubuntu-ec2" {
 
 // public key for ec2 instance
 resource "aws_key_pair" "ec2-key-pair" {
-    key_name = "ec2-key-pair"
+    key_name = format("%s-%s", var.name, "ec2-key-pair")
     public_key = var.ssh_public_key
 }
 
