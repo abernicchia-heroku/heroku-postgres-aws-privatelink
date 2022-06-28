@@ -19,7 +19,7 @@ resource "heroku_app" "example" {
 }
 
 resource "heroku_addon" "private_postgres_example" {
-  app  = heroku_app.example.name
+  app_id = heroku_app.example.id
   plan = "heroku-postgresql:private-0"
 }
 
@@ -40,7 +40,7 @@ resource "null_resource" "private_postgres_endpoint_service" {
 
   // it takes a bit of time to have the Postgres Endpoint Service visible to the AWS API, then waiting for a bunch of seconds 
   provisioner "local-exec" {
-    command = "sleep 30"
+    command = "sleep 60"
   }
 
   // to ensure provisioners are executed once the postgres addon has been created.

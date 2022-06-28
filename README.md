@@ -15,7 +15,7 @@ This Repository contains a set of Terraform files to automatically create a comp
 # How to create the sandbox environment
 1) Open a Terminal and log in via Heroku CLI. You must be logged in the Heroku CLI on the terminal used to execute the Terraform commands
 2) Fill in the **vars.template.tf_** variables file and rename it to **vars.tf** `$ mv vars.template.tf_ vars.tf`
-3) Execute `$ terraform init` and then `$ terraform apply` and type "yes" when prompted "Do you want to perform these actions?" to proceed with the infrastructure creation - the whole process will take about **20 minutes** to complete
+3) Execute `$ terraform init` and then `$ terraform apply` and type "yes" when prompted "Do you want to perform these actions?" to proceed with the infrastructure creation - the whole process will take about **20-40 minutes** to complete
 4) When the Terraform execution correctly ends, it is possible to retrieve:
 - the Postgres Endpoint URL `$ heroku config --app <YOUR_HEROKU_APP_NAME> | grep ENDPOINT` (e.g. *DATABASE_ENDPOINT_0Z9C05000F8_URL: postgres://user:passwd<span></span>@vpce-cd2064-596vghds.vpce-svc-07c4b22.eu-central-1.vpce.amazonaws.com:5432/do0lxxrtcb*)
 - the EC2 hostname inspecting the Terraform state `$ terraform show | grep public_dns` (e.g. *public_dns = "ec2-52-91-128-119.eu-central-1.compute.amazonaws.com"*)
@@ -60,9 +60,9 @@ This package has been tested using the following OS/tools:
 
 | OS/Tool                    | Version         |
 | --------------------------- | ------------- |
-| macOS                  |  Mojave 10.14.6             |
-| Heroku CLI        |     7.35.1          |
-| Terraform CLI             | 0.12 | 
+| macOS                  |  BigSur 11.6.7             |
+| Heroku CLI        |     7.60.2          |
+| Terraform CLI             | 1.2.3 | 
 
 # Debugging
 - In case of issues executing Terraform, enabling the [log trace](https://www.terraform.io/docs/internals/debugging.html) (e.g. `$ export TF_LOG=TRACE`) can help understanding the problems
